@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de dispositivo Estacionamiento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #292929;
+            color: #fff;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            border: none;
+            background-color: #313131;
+            color: #fff;
+        }
+
+        input[type="file"] {
+            width: 200px;
+            border: none;
+            background-color: #313131;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Agregando dispositivo estacionamiento</p>
+        <form action="#" th:action="@{nuevodispositivo}" th:object="${dispositivo}" method="post">
+            <p>NOMBRE: <input type="text" th:field="*{nombre}" /></p>
+            <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error-message">Nombre ERROR</p>
+            
+            
+          
+            
+             <select
+                  class="form-select"
+                  id="info"
+                  name="info"
+                  required
+                  th:field="${dispositivo.idLugar}"
+                  th:required="true"
+                >
+                  <option
+                    th:each="l : ${lugares}"
+                    th:value="${l.id}"
+                    th:text="${l.nombreLugar}"
+                    required
+                  ></option>
+            </select> 
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>

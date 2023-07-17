@@ -1,0 +1,24 @@
+<html>
+<body>
+
+    <table>
+       <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>libre</th>
+    </tr>
+    
+    <tr th:each="l : ${lista}">
+        <td th:text="${l.id}"></td>
+        <td th:text="${l.nombreLugar}"></td>
+        <td th:text="${l.lugarLibre}"></td>
+        
+         
+        <td>
+                <a th:href="@{/estacionamiento/baja/} + ${d.id}" th:text="'baja'" title="baja"></a>
+        </td>
+
+        </tr>
+    </table>
+</body>
+</html>

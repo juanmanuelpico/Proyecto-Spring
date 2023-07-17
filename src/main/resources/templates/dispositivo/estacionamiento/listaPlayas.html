@@ -1,0 +1,31 @@
+
+<html>
+<body>
+
+  <table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th> 
+        <th>PLAYA LLENA</th>
+    </tr>
+    
+    <tr th:each="p : ${lista}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nombre}"></td>
+        <td th:text="${p.playaLlena}"></td>
+        
+         
+        
+ 
+            
+          
+            <td>
+                <a th:href="@{/lugares/} + ${p.id}" th:text="'ver lugares'" title="ver lugares"></a>
+            </td>
+            
+            
+
+        </tr>
+    </table>
+</body>
+</html>

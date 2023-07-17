@@ -1,0 +1,40 @@
+<html>
+<body>
+
+    <table>
+       <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>libre</th>
+    </tr>
+    
+    <tr th:each="l : ${lista}">
+        <td th:text="${l.id}"></td>
+        <td th:text="${l.nombreLugar}"></td>
+        <td th:text="${l.lugarLibre}"></td>
+        
+         
+        
+    
+            
+          
+            <td>
+                <a th:href="@{/personas/editarPersona/} + ${a.id}" th:text="'Editar'" title="Editar"></a>
+            </td>
+            
+            <td>
+                <a th:href="@{/evento/listaEventos/}+ ${a.id}" th:text="'Detalles'" title="Detalles"></a>
+            </td>
+            
+            <td>
+                <a th:href="@{/alumbrado/eliminar/}+ ${a.id}" th:text="'Eliminar'" title="Eliminar"></a>
+            </td>
+            
+            <td>
+                <a th:href="@{/alumbrado/bajaAlumbrado/}+ ${a.id}" th:text="'Baja'" title="Baja"></a>
+            </td>
+
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de dispositivo Estacionamiento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #292929;
+            color: #fff;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            border: none;
+            background-color: #313131;
+            color: #fff;
+        }
+
+        input[type="file"] {
+            width: 200px;
+            border: none;
+            background-color: #313131;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Agregando dispositivo estacionamiento</p>
+        <form action="#" th:action="@{nuevamedicion}" th:object="${medicion}" method="post">
+			
+           
+            <p>PATENTE: <input type="text" th:field="*{patente}" /></p>
+           
+            
+             <select
+                  class="form-select"
+                  id="info"
+                  name="info"
+                  required
+                  th:field="${medicion.idDispositivo}"
+                  th:required="true"
+                >
+                  <option
+                    th:each="d : ${dispositivos}"
+                    th:value="${d.id}"
+                    th:text="${d.nombre}" 
+                    required 
+                  ></option> 
+            </select> 
+            
+            
+             
+             
+            
+            
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mediciones de Dispositivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1f1f1f;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #444;
+        }
+
+        tr:nth-child(even) {
+            background-color: #313131;
+        }
+    </style>
+    <script>
+        function goToEstacionamiento() {
+            window.location.href = "/estacionamiento";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="goToEstacionamiento()">Regresar a Estacionamiento</button>
+
+    <h1>MEDICIONES DE DISPOSITIVO</h1>
+
+    <table>
+        <tr> 
+            <th>ID</th> 
+            <th>FECHA HORA REGISTRO</th> 
+            <th>PATENTE</th>  
+            <th>PRESENCIA VEHICULO</th> 
+            <th>Dispositivo</th> 
+        </tr> 
+        <tr th:each="m : ${mediciones}">
+            <td th:text="${m.id}"></td>
+            <td th:text="${m.fechaHoraRegistro}"></td>
+            <td th:text="${m.patente}"></td>
+            <td th:text="${m.presenciaVehiculo}"></td> 
+            <td th:text="${m.dispositivo.nombre}"></td>
+        </tr>
+    </table>
+</body>
+</html>
