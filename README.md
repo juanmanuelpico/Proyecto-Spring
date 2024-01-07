@@ -1,0 +1,1 @@
+Este proyecto es el aporte que hice sobre mi rama en un proyecto grupal universitario. Su funcionalidad es el clásico ABM de un dispositivo con sus entidades asociadas. Se puede obtener una medicion de algun dispositivo en cierto lugar, generando un evento que brinda informacion. Se utiliza persistencia en base de datos con Hibernate y JPA
